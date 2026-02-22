@@ -1,18 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { ICONS } from '../utils/helper';
-import { ICONS_NAME } from '../constants/Icons';
-import { FONTS } from '../constants/Fonts';
-import { COLORS } from '../styles/colors';
-import SNText from '../components/Text';
+import { ICONS } from '../../utils/helper';
+import { ICONS_NAME } from '../../constants/Icons';
+import { FONTS } from '../../constants/Fonts';
+import { COLORS } from '../../styles/colors';
+import SNText from '../../components/Text';
+import FilterSection from './components/FilterSection';
+import RenderHistory from './components/RenderHistory';
 
 const HistoryScreen = () => {
-
-
   const navigation = useNavigation();
-  const bottomTabHeight = useBottomTabBarHeight();
 
   useLayoutEffect(() => {
     header();
@@ -46,12 +44,18 @@ const HistoryScreen = () => {
   }
 
   return (
-    <View>
-      <Text>HistoryScreen</Text>
+    <View style={styles.container}>
+      <FilterSection />
+      <RenderHistory />
     </View>
   )
 }
 
 export default HistoryScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.primary
+  }
+})
