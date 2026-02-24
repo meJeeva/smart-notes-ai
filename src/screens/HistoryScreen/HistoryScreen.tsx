@@ -8,9 +8,11 @@ import { COLORS } from '../../styles/colors';
 import SNText from '../../components/Text';
 import FilterSection from './components/FilterSection';
 import RenderHistory from './components/RenderHistory';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const HistoryScreen = () => {
   const navigation = useNavigation();
+  const bottomTabBarHeight = useBottomTabBarHeight();
 
   useLayoutEffect(() => {
     header();
@@ -44,7 +46,7 @@ const HistoryScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: bottomTabBarHeight }]}>
       <FilterSection />
       <RenderHistory />
     </View>

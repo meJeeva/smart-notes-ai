@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import HistoryScreen from '../screens/HistoryScreen/HistoryScreen';
 import { SCREEN_NAMES } from '../constants/ScreenNames';
 import { ICONS } from '../utils/helper';
