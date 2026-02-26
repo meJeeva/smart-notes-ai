@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { ICONS } from '../../utils/helper';
 import { ICONS_NAME } from '../../constants/Icons';
@@ -11,6 +11,9 @@ import RenderHistory from './components/RenderHistory';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 const HistoryScreen = () => {
+
+  const [onRefresh, setOnRefresh] = useState(false);
+
   const navigation = useNavigation();
   const bottomTabBarHeight = useBottomTabBarHeight();
 
@@ -48,7 +51,7 @@ const HistoryScreen = () => {
   return (
     <View style={[styles.container, { paddingBottom: bottomTabBarHeight }]}>
       <FilterSection />
-      <RenderHistory />
+      <RenderHistory refresh={onRefresh} setOnRefresh={setOnRefresh} />
     </View>
   )
 }

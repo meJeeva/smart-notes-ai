@@ -10,12 +10,13 @@ import { COLORS } from './../styles/colors'
 import RecordScreen from '../screens/RecordScreen/RecordScreen';
 
 
-type BottomTabProps = {
+export type BottomTabProps = {
     [SCREEN_NAMES.home]: undefined;
     [SCREEN_NAMES.profile]: { userId: string };
     [SCREEN_NAMES.record]: undefined;
     [SCREEN_NAMES.history]: undefined;
 }
+
 
 const BottomTab = createBottomTabNavigator<BottomTabProps>();
 

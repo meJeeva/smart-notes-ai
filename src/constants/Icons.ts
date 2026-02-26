@@ -41,5 +41,7 @@ export const ICONS_NAME = {
     dot: 'dot-single',
     blinking: 'north-star',
     record: 'record-vinyl',
-    dots: 'dots-three-vertical'
+    dots: 'dots-three-vertical',
+    badge: 'badge',
+    exit: 'exit-outline'
 };

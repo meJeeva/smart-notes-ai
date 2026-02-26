@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import SNText from '../../../components/Text'
 import SNCard from '../../../components/Card'
@@ -10,15 +10,34 @@ import { FONT_SIZES } from '../../../constants/FontSizes'
 import { FONTS } from '../../../constants/Fonts'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
 
-const RenderHistory = () => {
+type HistoryItemProp = {
+    refresh?: boolean;
+    setOnRefresh?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
+}
+
+const RenderHistory: React.FC<HistoryItemProp> = ({
+    refresh,
+    setOnRefresh
+}) => {
 
     const bottomTabBarHeight = useBottomTabBarHeight();
 
+    const onHandleRefresh = () => {
+        setOnRefresh?.(true);
+        setTimeout(() => {
+            setOnRefresh?.(false);
+        }, 2000)
+    }
+
     return (
         <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
-                paddingBottom: bottomTabBarHeight
-            }}>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingBottom: bottomTabBarHeight
+                }}
+                refreshControl={<RefreshControl onRefresh={onHandleRefresh} refreshing={refresh} />}
+            >
                 <SNText style={styles.titleText}>TODAY</SNText>
                 <HistoryItem />
                 <HistoryItem />

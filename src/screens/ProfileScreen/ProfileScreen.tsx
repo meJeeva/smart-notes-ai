@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ICONS } from '../../utils/helper';
@@ -44,12 +44,14 @@ const ProfileScreen = () => {
   }
 
   return (
-    <View>
+    <ScrollView
+      showsHorizontalScrollIndicator={false}
+    >
       <ProfileImage />
       <UsageStatistics />
       <AppSettings />
       <AccountButtons />
-    </View>
+    </ScrollView>
   )
 }
 

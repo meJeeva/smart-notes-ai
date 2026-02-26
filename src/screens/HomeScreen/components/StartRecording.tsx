@@ -8,8 +8,17 @@ import { ICONS_NAME } from '../../../constants/Icons'
 import { COLORS } from '../../../styles/colors'
 import { FONT_SIZES } from '../../../constants/FontSizes'
 import { FONTS } from '../../../constants/Fonts'
+import { SCREEN_NAMES } from '../../../constants/ScreenNames'
+import { useTabNavigation } from '../../../hooks/useTabNavigation'
 
 const StartRecording = () => {
+
+    const navigation = useTabNavigation();
+
+    const onHandleNavigation = () => {
+        navigation.navigate(SCREEN_NAMES.record);
+    }
+
     return (
         <SNCard style={styles.startRecordingContainer}>
             <SNButton style={styles.recordingIcon}>
@@ -23,7 +32,7 @@ const StartRecording = () => {
                 lectures instantly with AI power.
             </SNText>
 
-            <SNButton style={styles.beginNowButton}>
+            <SNButton style={styles.beginNowButton} onPressEvent={() => onHandleNavigation()}>
                 <SNText style={styles.beginNowText}>
                     Begin Now
                 </SNText>

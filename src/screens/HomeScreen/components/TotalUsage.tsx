@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         width: '90%',
         borderColor: COLORS.bgGrey,
         borderWidth: 1,
-        padding: 20
+        padding: 20,
+        borderRadius: 25
     },
     usageContainer: {
         flexDirection: 'row',

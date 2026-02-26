@@ -11,6 +11,7 @@ import StartRecording from './components/StartRecording'
 import TotalUsage from './components/TotalUsage'
 import RecentSummaries from './components/RecentSummaries'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
+import { SCREEN_NAMES } from '../../constants/ScreenNames'
 
 const HomeScreen = () => {
   const [isRefresh, setIsRefresh] = useState<boolean>(false);
@@ -42,11 +43,15 @@ const HomeScreen = () => {
         </View>
       ),
       headerRight: () => (
-        <TouchableOpacity style={styles.headerRightContainer}>
+        <TouchableOpacity style={styles.headerRightContainer} onPress={onHandleNavigateNotification}>
           <ICONS.Feather name={ICONS_NAME.notification} size={20} />
         </TouchableOpacity>
       )
     });
+  }
+
+  function onHandleNavigateNotification() {
+    navigation.navigate(SCREEN_NAMES.notification);
   }
 
   const onHandleRefresh = () => {

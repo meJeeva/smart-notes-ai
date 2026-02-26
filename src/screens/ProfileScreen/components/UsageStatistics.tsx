@@ -21,6 +21,14 @@ const UsageStatistics = () => {
                         <SNText style={styles.subCardValue}>12,450</SNText>
                     </SNCard>
                 </View>
+                <View style={styles.usageMontlyLimit}>
+                    <SNText style={styles.usageMontlyLimitText}>Monthly Token Limit</SNText>
+                    <SNText>62%</SNText>
+                </View>
+                <View style={styles.mainProgressBar}>
+                    <View style={styles.progressBar} />
+                </View>
+                <SNText style={styles.usageMontlySubText}>7,550 token remaining until next cycle</SNText>
             </SNCard>
         </View>
     )
@@ -30,7 +38,7 @@ export default UsageStatistics
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20
+        paddingHorizontal: 20
     },
     usageContainer: {
         flexDirection: 'row',
@@ -61,5 +69,36 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: FONTS.interBold,
         color: COLORS.secondary
+    },
+    usageMontlyLimit: {
+        marginTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 5
+    },
+    usageMontlyLimitText: {
+        fontSize: FONT_SIZES.MD,
+        fontFamily: FONTS.interMedium,
+        color: COLORS.text
+    },
+    mainProgressBar: {
+        height: 16,
+        backgroundColor: COLORS.bgGrey,
+        width: '100%',
+        marginVertical: 10,
+        borderRadius: 99,
+        position: 'relative'
+    },
+    progressBar: {
+        height: 16,
+        backgroundColor: COLORS.secondary,
+        width: '40%',
+        borderRadius: 99,
+    },
+    usageMontlySubText: {
+        fontSize: FONT_SIZES.SM,
+        fontFamily: FONTS.interMedium,
+        color: COLORS.grey
     }
 })
